@@ -34,4 +34,10 @@ class GameListAdapter(val gameList:ArrayList<Game>)
             Navigation.findNavController(it).navigate(action)
         }
     }
+
+    fun updateGameList(newGameList: ArrayList<Game>) {
+        gameList.clear()
+        gameList.addAll(newGameList)
+        notifyDataSetChanged()
+    }
 }

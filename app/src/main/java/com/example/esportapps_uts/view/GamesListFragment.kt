@@ -14,41 +14,41 @@ import com.example.esportapps_uts.viewmodel.ListViewModel
 
 
 class GamesListFragment : Fragment() {
-//    private lateinit var viewModel: ListViewModel
-//    private val studentListAdapter = GameListAdapter(arrayListOf())
-//    private lateinit var binding: FragmentGameListBinding
-//
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        binding = FragmentGamesListBinding.inflate(inflater,container, false)
-//        return binding.root
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
-//        viewModel.refresh()
-//        binding.recView.layoutManager = LinearLayoutManager(context)
-//        binding.recView.adapter = studentListAdapter
-//        observeViewModel()
-//    }
-//
-//    fun observeViewModel() {
-//        viewModel.gameLD.observe(viewLifecycleOwner, Observer { studentListAdapter.updateGameList(it) })
-//        viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
-//            if(it == true) {
-//                binding.recView.visibility = View.GONE
-//                binding.progressLoad.visibility = View.VISIBLE
-//            } else {
-//                binding.recView.visibility = View.VISIBLE
-//                binding.progressLoad.visibility = View.GONE
-//            }
-//        })
-//
-//    }
+    private lateinit var viewModel: ListViewModel
+    private val gameListAdapter = GameListAdapter(arrayListOf())
+    private lateinit var binding: FragmentGamesListBinding
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentGamesListBinding.inflate(inflater,container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
+        viewModel.refresh()
+        binding.recView.layoutManager = LinearLayoutManager(context)
+        binding.recView.adapter = gameListAdapter
+        observeViewModel()
+    }
+
+    fun observeViewModel() {
+        viewModel.gameLD.observe(viewLifecycleOwner, Observer { gameListAdapter.updateGameList(it) })
+        viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
+            if(it == true) {
+                binding.recView.visibility = View.GONE
+                binding.progressLoad.visibility = View.VISIBLE
+            } else {
+                binding.recView.visibility = View.VISIBLE
+                binding.progressLoad.visibility = View.GONE
+            }
+        })
+
+    }
 
 
 

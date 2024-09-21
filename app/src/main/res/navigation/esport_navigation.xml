@@ -3,31 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/esport_navigation"
-    app:startDestination="@id/gamesListFragment">
+    app:startDestination="@id/itemGameList">
 
     <fragment
-        android:id="@+id/gamesListFragment"
+        android:id="@+id/itemGameList"
         android:name="com.example.esportapps_uts.view.GamesListFragment"
         android:label="fragment_games_list"
         tools:layout="@layout/fragment_games_list" >
-        <action
-            android:id="@+id/actionScheduleList"
-            app:destination="@id/schedulesListFragment" />
         <action
             android:id="@+id/actionTeamList"
             app:destination="@id/teamListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/schedulesListFragment"
+        android:id="@+id/itemSchedule"
         android:name="com.example.esportapps_uts.view.SchedulesListFragment"
         android:label="fragment_schedules_list"
-        tools:layout="@layout/fragment_schedules_list" >
-        <action
-            android:id="@+id/actionProfile"
-            app:destination="@id/profileFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_schedules_list" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/itemProfile"
         android:name="com.example.esportapps_uts.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
