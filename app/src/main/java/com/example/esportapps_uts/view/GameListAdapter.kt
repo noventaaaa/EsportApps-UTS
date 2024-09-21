@@ -1,0 +1,37 @@
+package com.example.esportapps_uts.view
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.RecyclerView
+import com.example.esportapps_uts.databinding.GameListItemBinding
+import com.example.esportapps_uts.model.Game
+
+class GameListAdapter(val gameList:ArrayList<Game>)
+    : RecyclerView.Adapter<GameListAdapter.GameViewHolder>() {
+    class GameViewHolder(var binding: GameListItemBinding)
+        :RecyclerView.ViewHolder(binding.root)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
+        val binding = GameListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return GameViewHolder(binding)
+    }
+
+    override fun getItemCount(): Int {
+        return gameList.size
+    }
+
+    override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
+        holder.binding.txtName.text = gameList[position].name
+        holder.binding.txtDescription.text = gameList[position].description
+
+        holder.binding.btnAchievements.setOnClickListener{
+
+        }
+
+        holder.binding.btnTeam.setOnClickListener {
+            val action = GamesListFragmentDirections.actionTeamList()
+            Navigation.findNavController(it).navigate(action)
+        }
+    }
+}
