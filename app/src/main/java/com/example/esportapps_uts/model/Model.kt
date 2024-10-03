@@ -6,3 +6,10 @@ data class Game(
     var description:String?,
     var photoUrl:String?
 )
+
+data class Team(
+    var id:String?,
+    var name:String?,
+    var description:String?,
+    var photoUrl:String?
+)
