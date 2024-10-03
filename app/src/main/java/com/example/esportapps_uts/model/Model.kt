@@ -13,3 +13,10 @@ data class Team(
     var description:String?,
     var photoUrl:String?
 )
+
+data class Member(
+    var id:String?,
+    var name:String?,
+    var description:String?,
+    var photoUrl:String?
+)
