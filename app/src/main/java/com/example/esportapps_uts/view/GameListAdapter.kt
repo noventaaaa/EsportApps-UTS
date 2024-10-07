@@ -26,7 +26,8 @@ class GameListAdapter(val gameList:ArrayList<Game>)
         holder.binding.txtDescription.text = gameList[position].description
 
         holder.binding.btnAchievements.setOnClickListener{
-
+//            val action = GamesListFragmentDirections.actionAchievementsList()
+//            Navigation.findNavController(it).navigate(action)
         }
 
         holder.binding.btnTeam.setOnClickListener {

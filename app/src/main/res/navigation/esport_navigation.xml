@@ -38,4 +38,13 @@
         android:name="com.example.esportapps_uts.view.TeamDetailFragment"
         android:label="fragment_team_detail"
         tools:layout="@layout/fragment_team_detail" />
+    <fragment
+        android:id="@+id/achievementsFragment"
+        android:name="com.example.esportapps_uts.view.AchievementsFragment"
+        android:label="fragment_achievements"
+        tools:layout="@layout/fragment_achievements" >
+        <action
+            android:id="@+id/actionAchievementsList"
+            app:destination="@id/achievementsFragment" />
+    </fragment>
 </navigation>
