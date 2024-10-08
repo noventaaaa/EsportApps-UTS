@@ -13,6 +13,9 @@
         <action
             android:id="@+id/actionTeamList"
             app:destination="@id/teamListFragment" />
+        <action
+            android:id="@+id/actionAchievementsList"
+            app:destination="@id/achievementsFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemSchedule"
@@ -42,9 +45,5 @@
         android:id="@+id/achievementsFragment"
         android:name="com.example.esportapps_uts.view.AchievementsFragment"
         android:label="fragment_achievements"
-        tools:layout="@layout/fragment_achievements" >
-        <action
-            android:id="@+id/actionAchievementsList"
-            app:destination="@id/achievementsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_achievements" />
 </navigation>
