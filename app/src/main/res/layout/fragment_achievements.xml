@@ -8,39 +8,48 @@
     tools:context=".view.AchievementsFragment">
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:id="@+id/txtDes"
+        android:layout_width="334dp"
+        android:layout_height="216dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="220dp"
-        android:text="TextView"
+        android:text="txtDes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtGameName"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/txtGameName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="163dp"
-        android:layout_marginTop="159dp"
-        android:layout_marginEnd="190dp"
-        android:text="TextView"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="328dp"
+        android:text="txtName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerAch" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="372dp"
         android:layout_height="200dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
+
+    <Spinner
+        android:id="@+id/spinnerAch"
+        android:layout_width="355dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
