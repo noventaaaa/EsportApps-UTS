@@ -3,4 +3,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SchedulesListFragment"/>
+    tools:context=".view.SchedulesListFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="41dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="05" />
+
+            <TextView
+                android:id="@+id/txtMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="SEP" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtEvent"
+            android:layout_width="177dp"
+            android:layout_height="39dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="Regional Qualifer Valorant" />
+
+        <TextView
+            android:id="@+id/txtTeam"
+            android:layout_width="99dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:text="Valo - Team A" />
+    </LinearLayout>
+</FrameLayout>

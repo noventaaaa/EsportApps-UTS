@@ -16,6 +16,12 @@
         <action
             android:id="@+id/actionAchievementsList"
             app:destination="@id/achievementsFragment" />
+        <action
+            android:id="@+id/action_itemGameList_to_itemSchedule"
+            app:destination="@id/itemSchedule" />
+        <action
+            android:id="@+id/action_itemGameList_to_itemProfile"
+            app:destination="@id/itemProfile" />
     </fragment>
     <fragment
         android:id="@+id/itemSchedule"
@@ -26,7 +32,11 @@
         android:id="@+id/itemProfile"
         android:name="com.example.esportapps_uts.view.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/actionAddLike"
+            app:destination="@id/profileDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/teamListFragment"
         android:name="com.example.esportapps_uts.view.TeamListFragment"
@@ -46,4 +56,13 @@
         android:name="com.example.esportapps_uts.view.AchievementsFragment"
         android:label="fragment_achievements"
         tools:layout="@layout/fragment_achievements" />
+    <fragment
+        android:id="@+id/profileDetailFragment"
+        android:name="com.example.esportapps_uts.view.ProfileDetailFragment"
+        android:label="fragment_profile_detail"
+        tools:layout="@layout/fragment_profile_detail" >
+        <action
+            android:id="@+id/actionUnlike"
+            app:destination="@id/itemProfile" />
+    </fragment>
 </navigation>

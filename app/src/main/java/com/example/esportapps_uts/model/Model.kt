@@ -20,3 +20,9 @@ data class Member(
     var description:String?,
     var photoUrl:String?
 )
+
+data class Achievement(
+    var id:String?,
+    var name:String?,
+    var description:String?,
+)
