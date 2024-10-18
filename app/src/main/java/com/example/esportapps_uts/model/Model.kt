@@ -26,3 +26,14 @@ data class Achievement(
     var name:String?,
     var description:String?,
 )
+data class Schedule(
+    var id:String?,
+    var date:String?,
+    var month:String?,
+    var event:String?,
+    var location:String?,
+    var time:String?,
+    var game:String?,
+    var team:String?,
+    var description:String?
+)

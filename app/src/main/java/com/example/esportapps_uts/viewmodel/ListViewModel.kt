@@ -26,7 +26,7 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
 
         val stringRequest = StringRequest(
             Request.Method.GET,
-            "http://10.0.2.2/Game.json",
+            "http://127.0.0.1/game.php",
             { response ->
                 Log.d("VolleyRequest.Game", response)
                 val cleanedResponse = response.replace(" mph", "")
@@ -58,8 +58,8 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
 //                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoqu9LGSC7JNonJWOsYndlPqRFLU-Qu6U7rg&s")
 //        )
 
-        gameLoadErrorLD.value = false
-        loadingLD.value = false
+//        gameLoadErrorLD.value = false
+//        loadingLD.value = false
 
     }
 }
