@@ -16,7 +16,7 @@ import com.example.esportapps_uts.viewmodel.TeamViewModel
 
 class TeamListFragment : Fragment() {
     private lateinit var viewModel: TeamViewModel
-    private val teamListAdapter = TeamListAdapter(arrayListOf())
+    //private val teamListAdapter = TeamListAdapter(arrayListOf())
     private lateinit var binding: FragmentTeamListBinding
 
     override fun onCreateView(
