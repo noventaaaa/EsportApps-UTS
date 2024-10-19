@@ -26,7 +26,7 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
 
         val stringRequest = StringRequest(
             Request.Method.GET,
-            "http://127.0.0.1/game.php",
+            "http://192.168.45.123/getgame.php",
             { response ->
                 Log.d("VolleyRequest.Game", response)
                 val cleanedResponse = response.replace(" mph", "")
