@@ -27,7 +27,11 @@
         android:id="@+id/itemSchedule"
         android:name="com.example.esportapps_uts.view.SchedulesListFragment"
         android:label="fragment_schedules_list"
-        tools:layout="@layout/fragment_schedules_list" />
+        tools:layout="@layout/fragment_schedules_list" >
+        <action
+            android:id="@+id/actionScheduleDetail"
+            app:destination="@id/scheduleDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/itemProfile"
         android:name="com.example.esportapps_uts.view.ProfileFragment"
@@ -65,4 +69,25 @@
             android:id="@+id/actionUnlike"
             app:destination="@id/itemProfile" />
     </fragment>
+    <fragment
+        android:id="@+id/scheduleDetailFragment"
+        android:name="com.example.esportapps_uts.view.ScheduleDetailFragment"
+        android:label="fragment_schedule_detail"
+        tools:layout="@layout/fragment_schedule_detail" />
+    <argument android:name="id" />
+    <argument
+        android:name="event"
+        app:argType="string" />
+    <argument
+        android:name="location"
+        app:argType="string" />
+    <argument
+        android:name="description"
+        app:argType="string" />
+    <argument
+        android:name="team"
+        app:argType="string" />
+    <argument
+        android:name="time"
+        app:argType="string" />
 </navigation>

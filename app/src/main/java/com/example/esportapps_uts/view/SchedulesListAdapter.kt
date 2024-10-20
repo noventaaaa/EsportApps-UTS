@@ -6,6 +6,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.esportapps_uts.databinding.SchedulesListItemBinding
 import com.example.esportapps_uts.model.Schedule
+import com.example.esportapps_uts.view.SchedulesListFragmentDirections.Companion.actionScheduleDetail
 
 
 class SchedulesListAdapter(val scheduleList: ArrayList<Schedule>)
@@ -27,9 +28,10 @@ class SchedulesListAdapter(val scheduleList: ArrayList<Schedule>)
         holder.binding.txtDate.text = scheduleList[position].date
         holder.binding.txtEvent.text = scheduleList[position].event
         holder.binding.txtTeam.text = scheduleList[position].team
-        holder.binding.btnSchDetail.setOnClickListener {
-//            val action = GamesListFragmentDirections.actionAchievementsList()
-//            Navigation.findNavController(it).navigate(action)
+        holder.binding.cardSch.setOnClickListener {
+            val action = SchedulesListFragmentDirections.actionScheduleDetail()
+            //            val action = StudentListFragmentDirections.actionStudentDetail(name, id, phone,dob) (argumen)
+            Navigation.findNavController(it).navigate(action)
         }
     }
 
