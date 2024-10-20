@@ -6,7 +6,8 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:id="@+id/cardSch"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,15 +57,12 @@
 
             <Button
                 android:id="@+id/btnSchDetail"
-                android:layout_width="0dp"
+                android:layout_width="42dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="4dp"
                 android:gravity="center"
                 android:textSize="12sp"
                 app:icon="@drawable/baseline_navigate_next_24"
                 app:iconGravity="start"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/txtTeam"
                 app:layout_constraintTop_toTopOf="parent" />
 
