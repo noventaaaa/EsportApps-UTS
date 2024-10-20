@@ -13,5 +13,12 @@ fun ImageView.loadImage(url: String?, progressBar: ProgressBar){
         .centerCrop()
         .resize(400,300)
         .error(R.drawable.baseline_person_24)
-        .into(this)
+        .into(this, object: com.squareup.picasso.Callback {
+            override fun onSuccess() {
+                progressBar.visibility = View.GONE
+            }
+            override fun onError(e: Exception?) {
+                progressBar.visibility = View.GONE
+            }
+        })
 }

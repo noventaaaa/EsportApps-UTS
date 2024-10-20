@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.coroutinesCore)
     implementation("com.squareup.picasso:picasso:2.8")
+    implementation("com.squareup.picasso:picasso:2.71828")
 
 
 }
