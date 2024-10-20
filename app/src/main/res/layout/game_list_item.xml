@@ -7,82 +7,74 @@
     app:layoutDescription="@xml/game_list_item_scene">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="363dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imgGame"
+            <Button
+                android:id="@+id/btnTeam"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ml" />
-
-            <TextView
-                android:id="@+id/txtName"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mobile Legend"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginEnd="24dp"
+                android:text="Team"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btnAchievements"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="14dp"
+                android:text="Achievements"
+                app:layout_constraintEnd_toStartOf="@+id/btnTeam"
+                app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
             <TextView
                 android:id="@+id/txtDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ML is a game " />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:orientation="horizontal">
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="ML is a game "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
-                <Button
-                    android:id="@+id/btnAchievements"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Achievements" />
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="138dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="Mobile Legend"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgGame" />
 
-                <Button
-                    android:id="@+id/btnTeam"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Team" />
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/imgGame"
+                android:layout_width="360dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ml" />
 
-        </LinearLayout>
+            <ProgressBar
+                android:id="@+id/progressBarGame"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="156dp"
+                android:layout_marginBottom="48dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgGame"
+                app:layout_constraintEnd_toEndOf="@+id/imgGame" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,6 +55,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.volley)
     implementation(libs.gson)
+    implementation(libs.coroutinesCore)
+    implementation("com.squareup.picasso:picasso:2.8")
 
 
 }

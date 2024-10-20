@@ -37,9 +37,11 @@ class GamesListFragment : Fragment() {
     }
 
     fun observeViewModel() {
-        viewModel.gameLD.observe(viewLifecycleOwner, Observer { gameListAdapter.updateGameList(it) })
+        viewModel.gameLD.observe(viewLifecycleOwner, Observer {
+            gameListAdapter.updateGameList(it) })
+
         viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
-            if(it == true) {
+            if(it) {
                 binding.recView.visibility = View.GONE
                 binding.progressLoad.visibility = View.VISIBLE
             } else {
@@ -49,6 +51,7 @@ class GamesListFragment : Fragment() {
         })
 
     }
+
 
 
 

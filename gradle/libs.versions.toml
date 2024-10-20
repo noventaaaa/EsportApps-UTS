@@ -14,6 +14,10 @@ navigationUiKtx = "2.8.0"
 swiperefreshlayout = "1.1.0"
 volley = "1.2.1"
 gson = "2.10.1"
+coroutines = "1.5.0"
+
+
+
 
 
 [libraries]
@@ -30,6 +34,7 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref ="swiperefreshlayout" }
 volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+coroutinesCore = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

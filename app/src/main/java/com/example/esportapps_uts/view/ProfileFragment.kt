@@ -1,5 +1,6 @@
 package com.example.esportapps_uts.view
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,11 +11,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.esportapps_uts.R
 import com.example.esportapps_uts.databinding.FragmentProfileBinding
+import com.example.esportapps_uts.model.Game
+import com.example.esportapps_uts.view.GameListAdapter.GameViewHolder
 
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
-
+    val like = 18
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,12 +31,16 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnLike.setOnClickListener{
+
             val action = ProfileFragmentDirections.actionAddLike()
             Navigation.findNavController(it).navigate(action)
         }
 
 
     }
+
+
+
 
 
 }
