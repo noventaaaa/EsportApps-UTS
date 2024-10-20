@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.esportapps_uts.databinding.FragmentSchedulesListBinding
 import com.example.esportapps_uts.viewmodel.ListScheduleViewModel
@@ -13,7 +14,7 @@ import com.example.esportapps_uts.viewmodel.ListScheduleViewModel
 
 class SchedulesListFragment : Fragment() {
 
-    private lateinit var viewModel: ListScheduleViewModel
+    private lateinit var scheduleviewModel: ListScheduleViewModel
     private val SchedulesListAdapter = SchedulesListAdapter(arrayListOf())
     private lateinit var binding: FragmentSchedulesListBinding
 
@@ -28,20 +29,20 @@ class SchedulesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        viewModel = ListScheduleViewModel(this).get(ListScheduleViewModel::class.java)
-        viewModel.refresh()
+        scheduleviewModel = ViewModelProvider(this).get(ListScheduleViewModel::class.java)
+        scheduleviewModel.refresh()
         binding.recView.layoutManager = LinearLayoutManager(context)
         binding.recView.adapter = SchedulesListAdapter
-//        observeViewModel()
+        observeViewModel()
 
 
     }
 
     fun observeViewModel() {
-        viewModel.scheduleLD.observe(viewLifecycleOwner, Observer {
+        scheduleviewModel.scheduleLD.observe(viewLifecycleOwner, Observer {
             SchedulesListAdapter.updateScheduleList(it) })
 
-        viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
+        scheduleviewModel.loadingLD.observe(viewLifecycleOwner, Observer {
             if(it == true) {
                 binding.recView.visibility = View.GONE
                 binding.progressLoad.visibility = View.VISIBLE

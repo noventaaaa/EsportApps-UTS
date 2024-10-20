@@ -14,6 +14,7 @@ import com.example.esportapps_uts.viewmodel.ListViewModel
 
 
 class GamesListFragment : Fragment() {
+
     private lateinit var viewModel: ListViewModel
     private val gameListAdapter = GameListAdapter(arrayListOf())
     private lateinit var binding: FragmentGamesListBinding

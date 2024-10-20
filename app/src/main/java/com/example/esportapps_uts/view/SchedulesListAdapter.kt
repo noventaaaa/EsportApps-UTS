@@ -27,7 +27,10 @@ class SchedulesListAdapter(val scheduleList: ArrayList<Schedule>)
         holder.binding.txtDate.text = scheduleList[position].date
         holder.binding.txtEvent.text = scheduleList[position].event
         holder.binding.txtTeam.text = scheduleList[position].team
-
+        holder.binding.btnSchDetail.setOnClickListener {
+//            val action = GamesListFragmentDirections.actionAchievementsList()
+//            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     fun updateScheduleList(newScheduleList: ArrayList<Schedule>) {
