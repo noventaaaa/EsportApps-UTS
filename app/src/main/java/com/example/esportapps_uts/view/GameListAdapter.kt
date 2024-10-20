@@ -6,6 +6,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.esportapps_uts.databinding.GameListItemBinding
 import com.example.esportapps_uts.model.Game
+import com.example.esportapps_uts.util.loadImage
 
 class GameListAdapter(val gameList:ArrayList<Game>)
     : RecyclerView.Adapter<GameListAdapter.GameViewHolder>() {
@@ -24,7 +25,7 @@ class GameListAdapter(val gameList:ArrayList<Game>)
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
         holder.binding.txtName.text = gameList[position].name
         holder.binding.txtDescription.text = gameList[position].description
-
+        holder.binding.imgGame.loadImage(gameList[position].photoUrl , holder.binding.progressBarGame)
         holder.binding.btnAchievements.setOnClickListener{
             val action = GamesListFragmentDirections.actionAchievementsList()
             Navigation.findNavController(it).navigate(action)
