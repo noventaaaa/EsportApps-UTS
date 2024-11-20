@@ -90,4 +90,14 @@
     <argument
         android:name="time"
         app:argType="string" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.esportapps_uts.view.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/signupActivity"
+        android:name="com.example.esportapps_uts.view.SignupActivity"
+        android:label="activity_signup"
+        tools:layout="@layout/activity_signup" />
 </navigation>

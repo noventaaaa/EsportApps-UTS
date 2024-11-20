@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-kapt")
 }
 
 android {
@@ -56,8 +57,13 @@ dependencies {
     implementation(libs.volley)
     implementation(libs.gson)
     implementation(libs.coroutinesCore)
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
     implementation("com.squareup.picasso:picasso:2.8")
     implementation("com.squareup.picasso:picasso:2.71828")
+
+
 
 
 }
