@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SignupActivity">
+    tools:context=".view.SignUpFragment" >
 
     <EditText
         android:id="@+id/txtEmail"
         android:layout_width="300dp"
         android:layout_height="55dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -85,14 +85,14 @@
         android:id="@+id/txtUlangPassword"
         android:layout_width="300dp"
         android:layout_height="55dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Ulangi Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
     <CheckBox
         android:id="@+id/checkBoxIagree"
@@ -115,5 +115,4 @@
         android:textColorLink="#0F0E0E"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxIagree" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

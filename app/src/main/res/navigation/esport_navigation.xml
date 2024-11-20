@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_itemGameList_to_itemProfile"
             app:destination="@id/itemProfile" />
+        <action
+            android:id="@+id/action_itemGameList_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemSchedule"
@@ -95,9 +98,25 @@
         android:name="com.example.esportapps_uts.view.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
-    <activity
-        android:id="@+id/signupActivity"
-        android:name="com.example.esportapps_uts.view.SignupActivity"
-        android:label="activity_signup"
-        tools:layout="@layout/activity_signup" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.esportapps_uts.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_itemGameList"
+            app:destination="@id/itemGameList" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.esportapps_uts.view.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
