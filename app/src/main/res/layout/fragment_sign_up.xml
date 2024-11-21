@@ -1,118 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.SignUpFragment" >
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+    <data>
+        <variable
+            name="user"
+            type="com.example.esportapps_uts.model.User" />
+    </data>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="68dp"
-        android:hint="Esport Apps"
-        android:textColorLink="#F80707"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.SignUpFragment">
 
-    <EditText
-        android:id="@+id/txtUsername"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNamaBelakang" />
+        <EditText
+            android:id="@+id/txtPassword"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
 
-    <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="56dp"
-        android:text="SignUp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxIagree" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="68dp"
+            android:hint="Esport Apps"
+            android:textColorLink="#F80707"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/txtNamaDepan"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Nama Depan"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <EditText
+            android:id="@+id/txtUsername"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNamaBelakang" />
 
-    <EditText
-        android:id="@+id/txtNamaBelakang"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Nama Belakang"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNamaDepan" />
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="56dp"
+            android:text="SignUp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxIagree" />
 
-    <EditText
-        android:id="@+id/txtUlangPassword"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Ulangi Password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+        <EditText
+            android:id="@+id/txtNamaDepan"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="Nama Depan"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <CheckBox
-        android:id="@+id/checkBoxIagree"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="15dp"
-        android:text="I agree with terms conditions"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUlangPassword" />
+        <EditText
+            android:id="@+id/txtNamaBelakang"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Nama Belakang"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNamaDepan" />
 
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="16dp"
-        android:text="Back"
-        android:textColorLink="#0F0E0E"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxIagree" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/txtUlangPassword"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Ulangi Password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+
+        <CheckBox
+            android:id="@+id/checkBoxIagree"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="15dp"
+            android:text="I agree with terms conditions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUlangPassword" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="16dp"
+            android:text="Back"
+            android:textColorLink="#0F0E0E"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxIagree" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
