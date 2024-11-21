@@ -7,13 +7,13 @@
     tools:context=".view.SignUpFragment" >
 
     <EditText
-        android:id="@+id/txtEmail"
+        android:id="@+id/txtPassword"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+        android:hint="Password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +92,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
     <CheckBox
         android:id="@+id/checkBoxIagree"

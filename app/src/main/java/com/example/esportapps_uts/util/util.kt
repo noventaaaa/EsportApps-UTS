@@ -1,12 +1,26 @@
 package com.example.esportapps_uts.util
 
+import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.room.Room
 import com.example.esportapps_uts.R
+import com.example.esportapps_uts.model.GameDatabase
 import com.squareup.picasso.Picasso
 import javax.security.auth.callback.Callback
 
+val DB_NAME = "esport"
+
+fun buildDB(context: Context):GameDatabase{
+    val db = Room.databaseBuilder(
+        context,
+        GameDatabase::class.java,
+        DB_NAME
+    ).build()
+
+    return db
+}
 fun ImageView.loadImage(url: String?, progressBar: ProgressBar){
     Picasso.get()
         .load(url)
