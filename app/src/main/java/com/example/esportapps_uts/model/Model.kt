@@ -23,7 +23,7 @@ data class User(
     @ColumnInfo(name = "first_name")
     var firstname:String,
     @ColumnInfo(name = "last_name")
-    var lasttname:String,
+    var lastname:String,
     @ColumnInfo(name = "username")
     var username:String,
     @ColumnInfo(name = "password")

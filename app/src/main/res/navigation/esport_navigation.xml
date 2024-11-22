@@ -107,7 +107,7 @@
             android:id="@+id/actionsignUpFragment"
             app:destination="@id/signUpFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_itemGameList"
+            android:id="@+id/action_to_itemGameList"
             app:destination="@id/itemGameList" />
     </fragment>
     <fragment

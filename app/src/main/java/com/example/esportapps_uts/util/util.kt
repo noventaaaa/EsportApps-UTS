@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.databinding.BindingAdapter
 import androidx.room.Room
 import com.example.esportapps_uts.R
 import com.example.esportapps_uts.model.GameDatabase
@@ -35,4 +36,9 @@ fun ImageView.loadImage(url: String?, progressBar: ProgressBar){
                 progressBar.visibility = View.GONE
             }
         })
+}
+
+@BindingAdapter("android:imageUrl")
+fun loadPhotoUrl(view: ImageView, url:String){
+    view.loadImage(url, progressBar )
 }

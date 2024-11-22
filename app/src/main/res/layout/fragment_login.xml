@@ -7,6 +7,12 @@
         <variable
             name="user"
             type="com.example.esportapps_uts.model.User" />
+        <variable
+            name="loginlistener"
+            type="com.example.esportapps_uts.view.ButtonLoginListener" />
+        <variable
+            name="signuplistener"
+            type="com.example.esportapps_uts.view.TextCreateAccListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,6 +40,7 @@
             android:layout_marginStart="160dp"
             android:layout_marginTop="48dp"
             android:text="Login"
+            android:onClick="@{loginlistener::onButtonSignIn}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
@@ -45,6 +52,7 @@
             android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="Username"
+            android:text="@={user.username}"
             android:inputType="text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -57,6 +65,7 @@
             android:layout_marginTop="12dp"
             android:ems="10"
             android:hint="Password"
+            android:text="@={user.password}"
             android:inputType="textPassword"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
@@ -77,7 +86,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="CREATE ACCOUNT"
+            android:text="CreateAcc"
+            android:onClick="@{signuplistener::onTextCreateAcc}"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
