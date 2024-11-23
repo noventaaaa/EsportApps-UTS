@@ -6,15 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = arrayOf(User::class,Game::class), version =  1)
-abstract class GameDatabase: RoomDatabase() {
-    abstract fun gameDao(): GameDao
+abstract class GameDatabase:RoomDatabase() {
+    abstract fun gameDao():GameDao
     abstract fun userDao():UserDao
 
     companion object {
         @Volatile private var instance: GameDatabase ?= null
         private val LOCK = Any()
 
-        fun buildDatabase(context: Context) =
+        private fun buildDatabase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,
                 GameDatabase::class.java,

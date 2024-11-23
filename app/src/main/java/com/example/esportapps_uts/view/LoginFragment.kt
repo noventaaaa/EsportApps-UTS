@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.esportapps_uts.R
@@ -60,6 +61,12 @@ class LoginFragment : Fragment(), ButtonLoginListener, TextCreateAccListener {
 //        editor.apply()
     }
 
+
+    override fun onTextCreateAcc(v: View) {
+        val action = LoginFragmentDirections.actionsignUpFragment()
+        Navigation.findNavController(v).navigate(action)
+    }
+
     override fun onButtonLogin(v: View) {
         var objUser:User = dataBinding.user!!
         viewModel.login(objUser.username, objUser.password)
@@ -81,12 +88,6 @@ class LoginFragment : Fragment(), ButtonLoginListener, TextCreateAccListener {
                 Navigation.findNavController(v).navigate(action)
             }
         })
-
-    }
-
-    override fun onTextCreateAcc(v: View) {
-        val action = LoginFragmentDirections.actionsignUpFragment()
-        Navigation.findNavController(v).navigate(action)
     }
 
 }

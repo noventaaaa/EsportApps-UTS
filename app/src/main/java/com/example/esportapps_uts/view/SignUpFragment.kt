@@ -9,12 +9,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.example.esportapps_uts.R
 import com.example.esportapps_uts.databinding.FragmentSignUpBinding
 import com.example.esportapps_uts.model.User
 import com.example.esportapps_uts.viewmodel.UserViewModel
 
 
-class SignUpFragment : Fragment() {
+class SignUpFragment : Fragment(),ButtonSignUpListener,ButtonBackListener {
     private lateinit var viewModel:UserViewModel
     private lateinit var dataBinding:FragmentSignUpBinding
     override fun onCreateView(
@@ -22,7 +23,7 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        dataBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_sign_up,container,false)
+        dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up,container,false)
         return dataBinding.root
     }
 
@@ -49,5 +50,6 @@ class SignUpFragment : Fragment() {
         val action = SignUpFragmentDirections.actionloginFragment()
         Navigation.findNavController(v).navigate(action)
     }
+
 
 }

@@ -11,7 +11,7 @@ interface ButtonBackListener{
 }
 
 interface ButtonLoginListener{
-    fun onButtonSignIn(v: View)
+    fun onButtonLogin(v: View)
 }
 
 interface TextCreateAccListener{
