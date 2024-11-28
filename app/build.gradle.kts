@@ -54,7 +54,6 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.swiperefreshlayout)
     implementation(libs.androidx.baselibrary)
-    implementation(libs.androidx.databinding.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -65,7 +64,6 @@ dependencies {
     implementation(libs.room.ktx)
     kapt(libs.room.compiler)
     implementation("com.squareup.picasso:picasso:2.8")
-    implementation("com.squareup.picasso:picasso:2.71828")
 
 
 
