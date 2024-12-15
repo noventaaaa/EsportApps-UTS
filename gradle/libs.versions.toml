@@ -18,7 +18,7 @@ coroutines = "1.5.0"
 roomRuntime = "2.5.1"
 roomKTX = "2.5.1"
 roomCompiler = "2.5.1"
-baselibrary = "3.2.0-alpha11"
+#baselibrary = "3.2.0-alpha11"
 databindingRuntime = "8.7.2"
 
 
@@ -41,8 +41,9 @@ coroutinesCore = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-c
 room-runtime = { group="androidx.room", name="room-runtime", version.ref="roomRuntime" }
 room-ktx = { group="androidx.room", name="room-ktx", version.ref="roomKTX" }
 room-compiler = { group = "androidx.room", name="room-compiler", version.ref = "roomCompiler" }
-androidx-baselibrary = { group = "androidx.databinding", name = "baseLibrary", version.ref = "baselibrary" }
+#androidx-baselibrary = { group = "androidx.databinding", name = "baseLibrary", version.ref = "baselibrary" }
 androidx-databinding-runtime = { group = "androidx.databinding", name = "databinding-runtime", version.ref = "databindingRuntime" }
+
 
 
 

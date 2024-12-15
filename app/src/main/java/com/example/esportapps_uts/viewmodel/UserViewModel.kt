@@ -32,22 +32,22 @@ class UserViewModel(application: Application):AndroidViewModel(application), Cor
 
     }
 
-    fun fetch(username: String) {
-        viewModelScope.launch {
-            val user = withContext(Dispatchers.IO) {
-                val db = buildDB(getApplication())
-                db.userDao().selectProfile(username)
-            }
-            userLD.postValue(user)
-        }
-    }
+//    fun fetch(username: String) {
+//        viewModelScope.launch {
+//            val user = withContext(Dispatchers.IO) {
+//                val db = buildDB(getApplication())
+//                db.userDao().selectProfile(username)
+//            }
+//            userLD.postValue(user)
+//        }
+//    }
 
-    fun update(name:String,password:String,id:Int){
-        launch {
-            val db = buildDB(getApplication())
-            db.userDao().userUpdate(name,password,id)
-        }
-    }
+//    fun update(name:String,password:String,id:Int){
+//        launch {
+//            val db = buildDB(getApplication())
+//            db.userDao().userUpdate(name,password,id)
+//        }
+//    }
 
     private val job = Job()
     override val coroutineContext: CoroutineContext get() = job + Dispatchers.IO

@@ -52,6 +52,7 @@ data class Achievement(
     var name:String?,
     var description:String?,
 )
+
 data class Schedule(
     var id:String?,
     var date:String?,

@@ -40,7 +40,7 @@
             android:layout_marginStart="160dp"
             android:layout_marginTop="48dp"
             android:text="Login"
-            android:onClick="@{loginlistener::onButtonSignIn}"
+            android:onClick="@{loginlistener::onButtonLogin}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 

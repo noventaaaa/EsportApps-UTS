@@ -53,7 +53,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.swiperefreshlayout)
-    implementation(libs.androidx.baselibrary)
+//    implementation(libs.androidx.baselibrary)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     kapt(libs.room.compiler)
+    implementation("androidx.databinding:databinding-runtime:8.7.2")
     implementation("com.squareup.picasso:picasso:2.8")
 
 
