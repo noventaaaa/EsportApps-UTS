@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -9,67 +8,91 @@
             type="com.example.esportapps_uts.model.Schedule" />
     </data>
 
-    <FrameLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".view.ScheduleDetailFragment">
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
+            <!-- Event Image -->
             <ImageView
                 android:id="@+id/imgEvent"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginBottom="16dp"
                 android:scaleType="centerCrop"
-                tools:src="@tools:sample/backgrounds/scenic" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/img" />
 
+            <!-- Event Name -->
             <TextView
-                android:id="@+id/txtEvent"
-                android:layout_width="match_parent"
+                android:id="@+id/txtEventName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Regional" />
+                android:layout_marginTop="8dp"
+                android:text="@{schedule.eventName}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgEvent" />
 
+            <!-- Location and Time -->
             <TextView
-                android:id="@+id/txtLocation"
-                android:layout_width="match_parent"
+                android:id="@+id/txtLocationTime"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Singapore" />
+                android:layout_marginTop="4dp"
+                android:text="Los Angeles, CA (10.00 AM)"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtEventName" />
 
+            <!-- Team Name -->
             <TextView
-                android:id="@+id/txtTeam"
-                android:layout_width="match_parent"
+                android:id="@+id/txtTeamName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TEAM A" />
+                android:layout_marginTop="8dp"
+                android:text="@{schedule.teamName}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLocationTime" />
 
+            <!-- Description -->
             <TextView
-                android:id="@+id/textView17"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/txtDeskripsi"
-                android:layout_width="match_parent"
+                android:id="@+id/txtDescription"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="ini deskripsi ya" />
+                android:layout_marginTop="8dp"
+                android:text="This is a detailed description of the event..."
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTeamName" />
 
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
+            <!-- Notify Me Button -->
             <Button
-                android:id="@+id/btnNotify"
-                android:layout_width="140dp"
+                android:id="@+id/btnNotifyMe"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:gravity="center|right"
+                android:layout_marginTop="16dp"
                 android:text="Notify Me"
-                app:icon="@drawable/baseline_notifications_active_24"
-                app:iconGravity="start" />
-        </LinearLayout>
-    </FrameLayout>
+                android:textColor="?attr/colorOnPrimary"
+                android:backgroundTint="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDescription" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

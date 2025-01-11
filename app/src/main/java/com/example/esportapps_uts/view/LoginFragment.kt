@@ -18,49 +18,41 @@ import com.example.esportapps_uts.databinding.FragmentLoginBinding
 import com.example.esportapps_uts.model.User
 import com.example.esportapps_uts.viewmodel.UserViewModel
 
-
 class LoginFragment : Fragment(), ButtonLoginListener, TextCreateAccListener {
-    companion object{
-        val EXTRA_USERNAME = "USERNAME"
+
+    companion object {
+        const val EXTRA_USERNAME = "USERNAME"
     }
+
     private lateinit var viewModel: UserViewModel
-    private lateinit var dataBinding:FragmentLoginBinding
-    lateinit var shared: SharedPreferences
+    private lateinit var dataBinding: FragmentLoginBinding
+    private lateinit var shared: SharedPreferences
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login,container,false)
+        dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var sharedFile = requireActivity().packageName
+
+        val sharedFile = requireActivity().packageName
         shared = requireActivity().getSharedPreferences(sharedFile, Context.MODE_PRIVATE)
-        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-//        //retrive saved username
-//
-        var savedUsername = shared.getString(LoginFragment.EXTRA_USERNAME, "")
-        savedUsername?.let {
-            if (it.isNotEmpty()){
-                val action = LoginFragmentDirections.actionToItemGameList()
-                Navigation.findNavController(view).navigate(action)
-            }
+
+        val savedUsername = shared.getString(EXTRA_USERNAME, "")
+        if (!savedUsername.isNullOrEmpty()) {
+            navigateToGameList(view)
+            return
         }
 
-
-        dataBinding.user = User("","","","")
+        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        dataBinding.user = User("", "", "", "")
         dataBinding.loginlistener = this
         dataBinding.signuplistener = this
-
-        //save username
-//        var editor: SharedPreferences.Editor = shared.edit()
-//        editor.putString(EXTRA_USERNAME,username)
-//        editor.apply()
     }
-
 
     override fun onTextCreateAcc(v: View) {
         val action = LoginFragmentDirections.actionsignUpFragment()
@@ -68,26 +60,34 @@ class LoginFragment : Fragment(), ButtonLoginListener, TextCreateAccListener {
     }
 
     override fun onButtonLogin(v: View) {
-        var objUser:User = dataBinding.user!!
+        val objUser: User = dataBinding.user!!
         viewModel.login(objUser.username, objUser.password)
 
-        viewModel.userLD.observe(viewLifecycleOwner, Observer {
-            if (it == null){
+        viewModel.userLD.observe(viewLifecycleOwner, Observer { loggedInUser ->
+            if (loggedInUser == null) {
+                // Show alert if login fails
                 val alert = AlertDialog.Builder(v.context)
-                alert.setTitle("ALERT!")
-                alert.setMessage("Username or password does not match out database")
-                alert.setPositiveButton("OK") { _,_ ->}
+                    .setTitle("Login Failed")
+                    .setMessage("Username or password does not match our database")
+                    .setPositiveButton("OK", null)
+                    .create()
                 alert.show()
-            }else{
-                dataBinding.user = it
-                Toast.makeText(v.context, "Sign In Succeed", Toast.LENGTH_SHORT).show()
-                var editor: SharedPreferences.Editor = shared.edit()
-                editor.putString(EXTRA_USERNAME,it.username)
-                editor.apply()
-                val action = LoginFragmentDirections.actionToItemGameList()
-                Navigation.findNavController(v).navigate(action)
+            } else {
+                saveUserSession(loggedInUser.username)
+                Toast.makeText(v.context, "Welcome ${loggedInUser.username}!", Toast.LENGTH_SHORT).show()
+                navigateToGameList(v)
             }
         })
     }
 
+    private fun saveUserSession(username: String) {
+        val editor: SharedPreferences.Editor = shared.edit()
+        editor.putString(EXTRA_USERNAME, username)
+        editor.apply()
+    }
+
+    private fun navigateToGameList(v: View) {
+        val action = LoginFragmentDirections.actionToItemGameList()
+        Navigation.findNavController(v).navigate(action)
+    }
 }

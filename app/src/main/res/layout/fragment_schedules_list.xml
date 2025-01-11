@@ -8,21 +8,22 @@
     tools:context=".view.SchedulesListFragment" >
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".view.GameListFragment">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recView"
+                android:id="@+id/recViewSchedule"
                 android:layout_width="400dp"
                 android:layout_height="659dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="36dp" />
+                tools:layout_editor_absoluteY="36dp"
+                tools:listitem="@layout/team_list_item"/>
 
             <ProgressBar
                 android:id="@+id/progressLoad"
@@ -30,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/recView"
+                app:layout_constraintEnd_toEndOf="@+id/recViewSchedule"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

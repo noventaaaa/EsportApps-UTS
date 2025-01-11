@@ -1,43 +1,51 @@
 package com.example.esportapps_uts.view
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.esportapps_uts.R
 import com.example.esportapps_uts.databinding.FragmentProposalListBinding
-import com.example.esportapps_uts.viewmodel.ListViewModel
-import com.example.esportapps_uts.viewmodel.UserViewModel
-
+import com.example.esportapps_uts.viewModel.ProposalViewModel
 
 class ProposalListFragment : Fragment() {
-    private lateinit var viewModel: ListViewModel
-    private lateinit var dataBinding: FragmentProposalListBinding
+
+    private lateinit var binding: FragmentProposalListBinding
+    private lateinit var viewModel: ProposalViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        //dataBinding = DataBindingUtil.inflate<FragmentProposalListBinding>(inflater, R.layout.fragment_proposal_list,container, false)
-        return dataBinding.root
-
+    ): View {
+        binding = FragmentProposalListBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
+
+        viewModel = ViewModelProvider(this).get(ProposalViewModel::class.java)
+
+        binding.recyclerViewProposals.layoutManager = LinearLayoutManager(requireContext())
+
+        viewModel.proposalsLiveData.observe(viewLifecycleOwner) { proposals ->
+            val adapter = ProposalAdapter(proposals) { updatedProposal ->
+                viewModel.updateProposal(updatedProposal)
+                Toast.makeText(requireContext(), "Status updated", Toast.LENGTH_SHORT).show()
+            }
+            binding.recyclerViewProposals.adapter = adapter
+        }
 
 
-        var sharedFile = requireActivity().packageName
-        var shared: SharedPreferences = requireActivity().getSharedPreferences(sharedFile, Context.MODE_PRIVATE)
+        viewModel.loadProposals()
 
+        binding.fabAddProposal.setOnClickListener {
+            findNavController().navigate(R.id.action_proposalListFragment_to_applyTeamFragment)
+        }
     }
-
-
 }

@@ -18,7 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlin.coroutines.CoroutineContext
 
 class ListViewModel(application: Application):AndroidViewModel(application)//,CoroutineScope
- {
+{
     val gameLD = MutableLiveData<ArrayList<Game>>()
     val gameLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
@@ -55,7 +55,7 @@ class ListViewModel(application: Application):AndroidViewModel(application)//,Co
         super.onCleared()
         queue?.cancelAll(VOLLEY_TAG)
     }
-   // override val coroutineContext: CoroutineContext
-        //get() = game + Dispatchers.IO
+    // override val coroutineContext: CoroutineContext
+    //get() = game + Dispatchers.IO
 
 }

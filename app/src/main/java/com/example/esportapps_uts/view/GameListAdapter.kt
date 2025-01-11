@@ -1,45 +1,67 @@
 package com.example.esportapps_uts.view
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.esportapps_uts.R
 import com.example.esportapps_uts.databinding.GameListItemBinding
 import com.example.esportapps_uts.model.Game
-import com.example.esportapps_uts.util.loadImage
 
-class GameListAdapter(val gameList:ArrayList<Game>)
-    : RecyclerView.Adapter<GameListAdapter.GameViewHolder>() {
-    class GameViewHolder(var binding: GameListItemBinding)
-        :RecyclerView.ViewHolder(binding.root)
+class GameListAdapter(private val gameList: ArrayList<Game>) :
+    RecyclerView.Adapter<GameListAdapter.GameViewHolder>(), GameCardListener {
+
+    class GameViewHolder(var view: GameListItemBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
-        val binding = GameListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return GameViewHolder(binding)
-    }
-
-    override fun getItemCount(): Int {
-        return gameList.size
+        val inflater = LayoutInflater.from(parent.context)
+        val view = DataBindingUtil.inflate<GameListItemBinding>(
+            inflater,
+            R.layout.game_list_item,
+            parent,
+            false
+        )
+        return GameViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
-        holder.binding.txtName.text = gameList[position].name
-        holder.binding.txtDescription.text = gameList[position].description
-        holder.binding.imgGame.loadImage(gameList[position].photoUrl , holder.binding.progressBarGame)
-        holder.binding.btnAchievements.setOnClickListener{
-            val action = GamesListFragmentDirections.actionAchievementsList()
-            Navigation.findNavController(it).navigate(action)
-        }
-
-        holder.binding.btnTeam.setOnClickListener {
-            val action = GamesListFragmentDirections.actionTeamList()
-            Navigation.findNavController(it).navigate(action)
-        }
+        holder.view.game = gameList[position]
+        holder.view.gamecardlistener = this
+        holder.view.root.tag = gameList[position].idgame
     }
 
-    fun updateGameList(newGameList: ArrayList<Game>) {
+    override fun getItemCount(): Int = gameList.size
+
+    fun updateGameList(newGameList: List<Game>) {
         gameList.clear()
         gameList.addAll(newGameList)
         notifyDataSetChanged()
     }
+
+    fun onGameCard(view: View) {
+        val gameId = view.tag?.toString()?.toIntOrNull()
+        if (gameId != null) {
+            val action = GamesListFragmentDirections.actionTeamList(gameId)
+            Navigation.findNavController(view).navigate(action)
+        } else {
+            // Log atau handle error jika tag tidak valid
+        }
+    }
+    override fun onGameTeam(view: View, game: Game) {
+        // Implementasi tindakan untuk "Team"
+        val action = GamesListFragmentDirections.actionTeamList(game.idgame)
+        Navigation.findNavController(view).navigate(action)
+    }
+
+    override fun onGameAchievements(view: View, game: Game) {
+        // Implementasi tindakan untuk "Achievements"
+        val action = GamesListFragmentDirections.actionAchievementsList(game.idgame)
+        Navigation.findNavController(view).navigate(action)
+    }
+
+
+
+
 }

@@ -17,7 +17,15 @@ interface UserDao {
     @Query("SELECT * FROM user WHERE username= :username AND password=:password")
     fun selectUser(username:String,password:String):User
 
+    @Query("SELECT COUNT(*) FROM user WHERE username = :username")
+    fun isUsernameUnique(username: String): Int
+
+    @Query("SELECT * FROM user WHERE username = :username")
+    fun selectUserByUsername(username: String): User?
 
     @Delete
     fun deleteUser(user: User)
+
+
+
 }

@@ -1,44 +1,39 @@
-package com.example.esportapps_uts.view
+package com.example.esportapps_uts.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.esportapps_uts.databinding.SchedulesListItemBinding
 import com.example.esportapps_uts.model.Schedule
-import com.example.esportapps_uts.view.SchedulesListFragmentDirections.Companion.actionScheduleDetail
 
+class ScheduleAdapter(private var schedules: List<Schedule>) : RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder>() {
 
-class SchedulesListAdapter(val scheduleList: ArrayList<Schedule>)
-    : RecyclerView.Adapter<SchedulesListAdapter.ScheduleViewHolder>() {
-    class ScheduleViewHolder(var binding: SchedulesListItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    inner class ScheduleViewHolder(private val binding: SchedulesListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(schedule: Schedule) {
+            binding.schedule = schedule
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
-        val binding = SchedulesListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ScheduleViewHolder(binding)
-    }
-
-    override fun getItemCount(): Int {
-        return scheduleList.size
-    }
-
-    override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
-        holder.binding.txtMonth.text = scheduleList[position].month
-        holder.binding.txtDate.text = scheduleList[position].date
-        holder.binding.txtEvent.text = scheduleList[position].event
-        holder.binding.txtTeam.text = scheduleList[position].team
-        holder.binding.cardSch.setOnClickListener {
-            val action = SchedulesListFragmentDirections.actionScheduleDetail()
-            //            val action = StudentListFragmentDirections.actionStudentDetail(name, id, phone,dob) (argumen)
-            Navigation.findNavController(it).navigate(action)
+//            // Navigasi ke ScheduleDetailFragment
+//            binding.root.setOnClickListener {
+//                val action = SchedulesListFragmentDirections.actionToScheduleDetailFragment(schedule)
+//                Navigation.findNavController(binding.root).navigate(action)
+//            }
         }
     }
 
-    fun updateScheduleList(newScheduleList: ArrayList<Schedule>) {
-        scheduleList.clear()
-        scheduleList.addAll(newScheduleList)
-        notifyDataSetChanged()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = SchedulesListItemBinding.inflate(inflater, parent, false)
+        return ScheduleViewHolder(binding)
     }
 
+    override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
+        holder.bind(schedules[position])
+    }
+
+    override fun getItemCount(): Int = schedules.size
+
+    fun updateSchedules(newSchedules: List<Schedule>) {
+        schedules = newSchedules
+        notifyDataSetChanged()
+    }
 }

@@ -10,7 +10,7 @@ import com.example.esportapps_uts.model.Game
 import com.example.esportapps_uts.util.loadImage
 
 //class AchievementsAdapter(val achList:ArrayList<Achievement>)
- //   : RecyclerView.Adapter<AchievementsAdapter.AchievementsViewHolder>() {
+//   : RecyclerView.Adapter<AchievementsAdapter.AchievementsViewHolder>() {
 //    class AchievementsViewHolder(var binding: AchievementsListItemBinding)
 //        : RecyclerView.ViewHolder(binding.root)
 //
